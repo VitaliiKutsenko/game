@@ -17,7 +17,7 @@ export const BaseParamsWrapper = styled.div`
     height: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    //flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
     align-items: center;

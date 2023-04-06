@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GlobalStyleComponent } from './style/styled/globalStyle';
-import { ErrorBoundary } from './components/errorBoundary/errorBoundary';
+import { ErrorBoundary } from './services/errorBoundary/errorBoundary';
 import { RouterProvider } from 'react-router-dom';
 import { rootRouter } from './routes/rootRouter';
 
