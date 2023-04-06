@@ -5,6 +5,8 @@ import { championsParams } from './reducers/baseOptions/baseOptionsReducer';
 import { heroes } from './reducers/heroes/heroesReducer';
 import { styles } from './reducers/styles/stylesReducer';
 import { user } from './reducers/user/userReducer';
+import { fight } from './reducers/fight/fightReducer';
+import { fightBody } from './reducers/fightBody/fightBodyReducer';
 
 export const rootReducer = combineReducers({
   championsParams,
@@ -13,4 +15,6 @@ export const rootReducer = combineReducers({
   heroes,
   styles,
   user,
+  fight,
+  fightBody,
 });

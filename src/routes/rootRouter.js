@@ -12,7 +12,7 @@ import { Fight } from '../pages/fight/fight';
 import { Private } from './privateRoutes';
 import { CharacterCreator } from '../components/characterCreator/characterCreator';
 
-export const rootRouter = createHashRouter(
+export const rootRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route

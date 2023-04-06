@@ -6,12 +6,12 @@ export const CharacterWrapper = styled.div`
   height: 90vh;
   display: grid;
   grid-template-areas:
-    ' baseParams avatar param '
+    ' avatar param param '
+    'baseParams baseParams baseParams'
     ' skills skills skills';
   grid-template-columns: 2fr 2fr 1fr;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: 0.5fr 1fr 2fr;
   justify-content: center;
   align-items: start;
   grid-gap: 10px;
-  //padding: 20px;
 `;

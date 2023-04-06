@@ -7,6 +7,10 @@ export const BaseOptionsWrapper = styled(BaseParamsWrapper)`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  & ul {
+    display: flex;
+    justify-content: space-around;
+  }
   & h3 {
     align-self: center;
     margin: 5px;
