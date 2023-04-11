@@ -1,16 +1,26 @@
 import React from 'react';
 import { FightWrapper } from './fightStyled';
-import FightBody from './components/fightBody/fightBody';
-import { HeroDisplay } from './components/heroDisplay/heroDisplay';
-import { BotDisplay } from './components/botDisplay/botDisplay';
-import { FightOptions } from './components/fightOptions/fightOptions';
+import { useSelector } from 'react-redux';
+import { BattleLog } from '@src/pages/fight/components/battleLog/battleLog';
+import { UserFight } from '@src/pages/fight/components/userFight/userFight';
+import { FightButton } from '@src/components/buttons/fightButton';
+import BotFight from '@src/pages/fight/components/botFight/botFight';
+import { AbilitiesField } from '@src/pages/fight/components/abilitiesField/abilitiesField';
 
-export const Fight = () => {
+const Fight = () => {
+  const { attack, defence, ready } = useSelector(store => store.fight.user);
+
   return (
     <FightWrapper>
-      <HeroDisplay />
-      <FightOptions />
-      <BotDisplay />
+      <UserFight attack={attack} defence={defence} />
+      <div>
+        <AbilitiesField />
+        <FightButton attack={attack} defence={defence} />
+        <BattleLog fight={ready} />
+      </div>
+      <BotFight />
     </FightWrapper>
   );
 };
+
+export default React.memo(Fight);

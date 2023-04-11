@@ -3,16 +3,14 @@ import styled from 'styled-components';
 export const BodyWrapper = styled.div`
   position: relative;
   width: 170px;
-  height: 350px;
+  height: 325px;
   border: 1px solid black;
 `;
 export const FightBodyWrapper = styled.div`
   position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  top: 0;
+  top: -20px;
+
   & svg {
     position: absolute;
     left: 0;
@@ -56,19 +54,16 @@ export const FightBodyWrapper = styled.div`
     cursor: pointer;
     stroke: black;
   }
-
-  & svg:hover path {
-    //fill: #ff7d16;
-  }
-
-  & svg {
-    fill: #a06d69;
-  }
 `;
 
 export const FightBodyListWrapper = styled.div`
   & svg path {
     border: 1px solid black;
-    fill: ${({ toggle }) => (toggle ? 'green' : '#dcb28e')};
-  }
+    fill: ${({ action, toggle }) => {
+      if (action === 'attack' && toggle) {
+        return 'green';
+      } else if (action === 'defence' && toggle) {
+        return 'grey';
+      }
+    }}
 `;

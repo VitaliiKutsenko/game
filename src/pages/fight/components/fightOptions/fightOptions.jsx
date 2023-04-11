@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { AttackOptions } from './components/attackOptions';
-import { useSelector } from 'react-redux';
 
-export const FightOptions = () => {
-  const { attack, defence } = useSelector(store => store.fight);
+const attackTitle = `Выберите часть тела, куда нанести удар `;
+const defenceTitle = `Выберите часть тела, которую хотите защитить `;
 
+export const FightOptions = ({ attack, defence, bodySchema, type }) => {
   return (
     <FightOptionsWrapper>
-      <AttackOptions typeList={attack} titles="Атака" action="attack" />
-      <AttackOptions typeList={defence} titles="Защита" action="defence" />
+      <AttackOptions
+        bodySchema={bodySchema}
+        typeList={attack}
+        titles={attackTitle}
+        action="attack"
+        type={type}
+      />
+      <AttackOptions
+        bodySchema={bodySchema}
+        typeList={defence}
+        titles={defenceTitle}
+        action="defence"
+        type={type}
+      />
     </FightOptionsWrapper>
   );
 };
 
 export const FightOptionsWrapper = styled.div`
+  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
   gap: 10px;
 `;

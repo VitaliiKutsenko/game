@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import { BaseParamsWrapper } from '../baseParams/baseParamsStyled';
+import { BaseParamsWrapper } from '../../../skills/baseParams/baseParamsStyled';
 
 export const CharacterInfoWrapper = styled(BaseParamsWrapper)`
   grid-area: avatar;
   width: 100%;
-  height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   gap: 20px;
-  flex-direction: row-reverse;
   & span {
   }
   & svg {

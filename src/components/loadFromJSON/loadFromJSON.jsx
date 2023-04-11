@@ -20,8 +20,6 @@ export const LoadFromJSON = () => {
     }
   };
 
-  console.log(file);
-
   return (
     <LoadFromJSONWrapper>
       <button className="load-file" onClick={e => e.currentTarget.firstElementChild.click()}>

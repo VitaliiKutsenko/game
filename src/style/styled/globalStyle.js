@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import groteskWOFF2 from '../../../public/fonts/NeueHaasDisplay-Roman.woff2';
-import groteskWOFF from '../../../public/fonts/NeueHaasDisplay-Roman.woff';
-import groteskTTF from '../../../public/fonts/NeueHaasDisplay-Roman.ttf';
+import groteskWOFF2 from '@public/fonts/NeueHaasDisplay-Roman.woff2';
+import groteskWOFF from '@public/fonts/NeueHaasDisplay-Roman.woff';
+import groteskTTF from '@public/fonts/NeueHaasDisplay-Roman.ttf';
 
 export const GlobalStyleComponent = createGlobalStyle`
   @font-face {
@@ -24,7 +24,8 @@ export const GlobalStyleComponent = createGlobalStyle`
   }
 
   #root {
-    max-width: 100vw;
+    width: 85%;
     height: 100vh;
+    margin: 0 auto;
     }
 `;

@@ -6,11 +6,10 @@ import {
   createBrowserRouter,
 } from 'react-router-dom';
 import { Layout } from '../pages/layout/layout';
-import { WorldMap } from '../pages/map/worldMap';
-import { Character } from '../pages/character/character';
-import { Fight } from '../pages/fight/fight';
 import { Private } from './privateRoutes';
 import { CharacterCreator } from '../components/characterCreator/characterCreator';
+import { Skills } from '@src/pages/skills/skills';
+import { LazyFight } from '@src/routes/lazyRoutes';
 
 export const rootRouter = createBrowserRouter(
   createRoutesFromElements(
@@ -19,13 +18,20 @@ export const rootRouter = createBrowserRouter(
         index
         element={
           <Private>
-            <Character />
+            <Skills />
           </Private>
         }
       />
-      <Route path="fight" element={<Fight />} />
-      <Route path="map" element={<WorldMap />} />
-      <Route path="create" element={<CharacterCreator />}></Route>
+      <Route
+        path="fight"
+        element={
+          <Private>
+            <LazyFight />
+          </Private>
+        }
+      />
+      <Route path="auth" element={<CharacterCreator />} />
+
       <Route path="*" element={<div>Error</div>} />
     </Route>
   )

@@ -1,20 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import FightBody from '../../fightBody/fightBody';
-import { useSelector } from 'react-redux';
 
-export const AttackOptions = ({ typeList, action, titles }) => {
+export const AttackOptions = ({ typeList, action, titles, bodySchema, type }) => {
   return (
-    <AttackOptionsWrapper>
+    <AttackOptionsWrapper action={action} type={type}>
       <div>{titles}</div>
-      <FightBody action={action} typeList={typeList} />
-      <ul>
-        {typeList.length > 0
-          ? typeList.map(item => {
-              return <li key={item.title}>{item.title}</li>;
-            })
-          : null}
-      </ul>
+      <div className="fight_flex-wrapper">
+        <FightBody bodySchema={bodySchema} titles={titles} action={action} typeList={typeList} />
+        <ul>
+          {typeList.length > 0
+            ? typeList.map(item => {
+                return <li key={item.title}>{item.title}</li>;
+              })
+            : null}
+        </ul>
+      </div>
     </AttackOptionsWrapper>
   );
 };
@@ -22,19 +23,26 @@ export const AttackOptions = ({ typeList, action, titles }) => {
 export const AttackOptionsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  background: white;
-  & button {
-    padding: 5px;
-    background: ${({ buttonState }) => (buttonState ? 'green' : 'white')};
-  }
-  & ul {
+  //width: 100%;
+  justify-content: flex-start;
+  margin: 10px;
+  & .fight_flex-wrapper {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
-    list-style: none;
-    & li {
-      padding: 5px;
-      border: 1px solid black;
+    flex-direction: ${({ type }) => (type === 'enemy' ? 'row-reverse' : 'row')};
+    & ul {
+      left: 100%;
+      width: 110px;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      list-style: none;
+      & li {
+        border-radius: 6px;
+        padding: 5px;
+        border: 1px solid black;
+      }
     }
   }
 `;

@@ -102,7 +102,14 @@ module.exports = {
     port: 3000,
   },
   plugins: plugins(),
-  resolve: { extensions: ['.js', '.jsx'] },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    alias: {
+      '@': path.join(__dirname, '../'),
+      '@public': path.join(__dirname, 'public/'),
+      '@src': path.join(__dirname, 'src/'),
+    },
+  },
   module: {
     rules: [
       {
@@ -127,6 +134,6 @@ module.exports = {
   output: {
     filename: filename('js'),
     path: path.resolve(__dirname, 'build'),
-    // publicPath: '/cv_client/',
+    publicPath: '/',
   },
 };

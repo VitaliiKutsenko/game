@@ -1,43 +1,20 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FightBodyListWrapper } from './fightBodyStyled';
 
-const FightBodyList = ({
-  svg,
-  title,
-  handleClick,
-  typeList,
-  action,
-  attackActive,
-  defenceActive,
-}) => {
+const FightBodyList = ({ svg, title, handleClick, action }) => {
   const [toggle, setToggle] = useState(false);
 
-  console.log(attackActive, defenceActive);
   const handleTestClick = e => {
-    switch (action) {
-      case 'attack':
-        if (typeList.some(item => item.title === title) || typeList.length <= 1) {
-          handleClick(title, !toggle);
-          setToggle(prev => !prev);
-        }
-
-        break;
-
-      case 'defence':
-        if (typeList.length <= 2) {
-          // if (typeList.some(item => item.title === title)) {
-          handleClick(title, !toggle);
-          setToggle(prev => !prev);
-          // }
-        }
-
-        break;
-    }
+    handleClick(title, !toggle, setToggle);
   };
 
+  const memoRender = useMemo(() => {
+    return React.createElement(svg);
+  }, [svg]);
+
   return (
-    <FightBodyListWrapper toggle={toggle} onClick={handleTestClick}>
-      {React.createElement(svg)}
+    <FightBodyListWrapper toggle={toggle} action={action} onClick={handleTestClick}>
+      {memoRender}
     </FightBodyListWrapper>
   );
 };

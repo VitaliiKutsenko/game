@@ -1,12 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { Loader } from '../components/loader/loader';
 
-const MainPage = lazy(() => import('./../pages/mainPage/mainPage'));
+const Fight = lazy(() => import('../pages/fight/fight'));
 
-export const LazyMainPage = () => {
+export const LazyFight = () => {
   return (
-    <Suspense fallback={<Loader />}>
-      <MainPage />
+    <Suspense fallback={<h1>Load</h1>}>
+      <Fight />
     </Suspense>
   );
 };

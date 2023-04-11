@@ -2,15 +2,22 @@ import styled from 'styled-components';
 
 export const CharacterCreatorWrapper = styled.div`
   display: flex;
-  height: fit-content;
-  background: white;
-  border-radius: 6px;
+  background: none;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  margin: 0 60%;
   & form {
-    width: 100%;
-    height: 100%;
-    margin: 120px;
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    background: tomato;
+    padding: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     gap: 50px;
 
     & div {

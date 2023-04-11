@@ -6,7 +6,7 @@ export const Private = ({ children }) => {
   const user = useSelector(store => store.user);
 
   if (!user.name) {
-    return <Navigate to="/create" />;
+    return <Navigate to="/auth" />;
   }
 
   return children;
