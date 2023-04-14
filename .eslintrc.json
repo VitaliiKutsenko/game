@@ -8,34 +8,52 @@
   "extends": [
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+//    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier",
     "plugin:prettier/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+    "jsx": true
+  },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "tsconfigRootDir": "./",
+    "project": [
+      "./tsconfig.json"
+    ]},
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
   "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      }
+    },
     "react": {
       "createClass": "createReactClass",
       "pragma": "React",
       "fragment": "Fragment",
       "version": "detect",
       "flowVersion": "0.53"
-    },
-    "import/extensions": [
-      ".js",
-      ".jsx"
-    ]
+    }
   },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "react",
-    "prettier"
-  ],
   "rules": {
+    "@typescript-eslint/no-explicit-any": "warn",
+//    "@typescript-eslint/ban-types": [
+//      "error",
+//      {
+//        "extendDefaults": true,
+//        "types": {
+//          "{}": false
+//        }
+//      }
+//    ],
     "react/prop-types": 0,
     "react/react-in-jsx-scope": "off",
     "react/jsx-first-prop-new-line": [2, "multiline"],
@@ -53,10 +71,7 @@
       }
     ],
     "curly": "error",
-    "no-eval": "error",
     "eqeqeq": "error",
-    "no-template-curly-in-string": "error",
-    "no-useless-return": "error",
     "require-atomic-updates": "error",
     "yoda": "error",
     "max-len": [
@@ -70,14 +85,6 @@
       }
     ],
     "lines-between-class-members": "error",
-    "no-var": "error",
-    "no-useless-escape": "off",
-    "no-undef": [
-      "error",
-      {
-        "typeof": true
-      }
-    ],
     "object-curly-newline": [
       "error",
       {
@@ -94,6 +101,17 @@
         "ExportDeclaration": {
           "multiline": true
         }
+      }
+    ],
+    "no-eval": "error",
+    "no-template-curly-in-string": "error",
+    "no-useless-return": "error",
+    "no-var": "error",
+    "no-useless-escape": "off",
+    "no-undef": [
+      "error",
+      {
+        "typeof": true
       }
     ],
     "padding-line-between-statements": [

@@ -1,0 +1,5 @@
+export enum SkillActionsType {
+  SET_SKILL = 'SET_SKILL',
+  ADD_SKILL_POINT = 'ADD_SKILL_POINT',
+  REMOVE_SKILL_POINT = 'REMOVE_SKILL_POINT',
+}

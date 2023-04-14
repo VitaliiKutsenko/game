@@ -1,4 +1,4 @@
 {
-  "src/**/*.+(js|jsx)": ["eslint --quiet --fix --color"]
+  "src/**/*.+(js|jsx|ts|tsx)": ["eslint --quiet --fix --color"]
 }
 
